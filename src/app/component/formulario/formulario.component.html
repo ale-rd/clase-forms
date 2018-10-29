@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+  Nombre:<input type="text" name="nombre" ngModel required #nombre="ngModel" class="form-control">
+  <!-- <div *ngIf="f.controls['nombre'].valid">mensaje</div> -->
+  <!-- <div *ngIf="f.controls['nombre'].valid">menasdasdasdasdsaje</div> -->
+  <div *ngIf="nombre.valid">menasdasdasdasdsaje</div>
+
+  <br/>
+  Apellido:<input type="text" name="apellido" ngModel required class="form-control">
+  <br/>
+  Email:<input type="text" name="email" ngModel email required class="form-control">
+  <!-- <div *ngIf="email.errors.mail">El formato del mail no es válido</div> -->
+  <br/>
+  <button type="submit" [disabled]="f.invalid">Enviar</button>
+</form>

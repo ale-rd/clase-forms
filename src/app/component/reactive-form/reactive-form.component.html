@@ -1,0 +1,44 @@
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit( f.values )">
+    <label for="nombreInput">Ingresar nombre</label>
+    <input
+       type="text"
+       id="nombreInput"
+       placeholder="nombre"
+       name="name"
+       ngModel> 
+    <button type="submit">Submit</button>
+ </form> -->
+
+ <form
+ [formGroup]="myForm"
+ (ngSubmit)="onSubmit( myForm.value )">
+  Nombre:
+  <input class="form-control"
+  type="text"
+  id="nombreInput"
+  placeholder="nombre" 
+  name="nombre" 
+  [formControl]="myForm.controls['nombre']">
+
+  <br/>
+  Apellido:
+  <input class="form-control"
+  type="text"
+  id="apellidoInput"
+  placeholder="apellido" 
+  name="apellido" 
+  [formControl]="myForm.controls['apellido']">
+
+  <br/>
+  Email:
+  <input class="form-control"
+  type="text"
+  id="emailInput"
+  placeholder="email" 
+  name="email" 
+  [formControl]="myForm.controls['email']">
+
+  <br/>
+  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Enviar</button>
+
+ </form>

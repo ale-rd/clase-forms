@@ -19,6 +19,9 @@
   placeholder="nombre" 
   name="nombre" 
   [formControl]="myForm.controls['nombre']">
+  <span *ngIf="nombre.invalid && nombre.touched">
+      El campo no es válido.
+  </span>
 
   <br/>
   Apellido:
@@ -28,6 +31,10 @@
   placeholder="apellido" 
   name="apellido" 
   [formControl]="myForm.controls['apellido']">
+  <span *ngIf="apellido.invalid && apellido.touched">
+    El apellido no es válido.
+  </span>
+  
 
   <br/>
   Email:
@@ -37,7 +44,18 @@
   placeholder="email" 
   name="email" 
   [formControl]="myForm.controls['email']">
+  <span *ngIf="email.invalid && email.touched">
+      El email no es válido.
+  </span>
 
+  <br/>
+  <input 
+  type="checkbox"
+  id="newsCheckInput"
+  placeholder="newsCheck" 
+  name="newsCheck" 
+  [formControl]="myForm.controls['newsCheck']">
+  ¿Desea suscribirse al newslester?
   <br/>
   <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Enviar</button>
 
